@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="theme-color" content="#111214">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="agterm">
+<title>agterm</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="list-view" class="view">
+  <header class="bar">
+    <h1>Сессии</h1>
+    <span id="conn" class="conn" title="Связь с Mac"></span>
+  </header>
+  <div id="error" class="error" hidden></div>
+  <main class="list">
+    <div id="limits" class="group limits" hidden></div>
+    <div id="list"></div>
+  </main>
+</section>
+
+<section id="session-view" class="view" hidden>
+  <header class="bar">
+    <button id="back" class="icon-btn" aria-label="Назад">‹</button>
+    <div class="title">
+      <div id="s-name" class="s-name"></div>
+      <div id="s-meta" class="s-meta"></div>
+    </div>
+    <button id="menu-btn" class="icon-btn" aria-label="Вид">Aa</button>
+  </header>
+  <div id="menu" class="menu" hidden>
+    <div class="row">
+      <span>Шрифт</span>
+      <button data-font="-1" class="chip">A−</button>
+      <button data-font="1" class="chip">A+</button>
+    </div>
+    <label class="row"><input type="checkbox" id="wrap"> Переносить строки</label>
+    <label class="row"><input type="checkbox" id="history"> Показывать историю (300 строк)</label>
+  </div>
+  <div id="panes" class="panes" hidden></div>
+  <div id="s-error" class="error" hidden></div>
+  <pre id="screen" class="screen"></pre>
+  <div class="keys" id="keys">
+    <button data-key="enter">Enter</button>
+    <button data-key="esc">Esc</button>
+    <button data-key="1">1</button>
+    <button data-key="2">2</button>
+    <button data-key="3">3</button>
+    <button data-key="up">↑</button>
+    <button data-key="down">↓</button>
+    <button data-key="left">←</button>
+    <button data-key="right">→</button>
+    <button data-key="tab">Tab</button>
+    <button data-key="stab">⇧Tab</button>
+    <button data-key="y">y</button>
+    <button data-key="n">n</button>
+    <button data-key="bs">⌫</button>
+    <button data-key="ctrlc" class="danger">Ctrl+C</button>
+  </div>
+  <form id="composer" class="composer">
+    <textarea id="input" rows="1" placeholder="Сообщение…" autocomplete="off" autocapitalize="sentences" enterkeyhint="send"></textarea>
+    <button type="button" id="insert" class="icon-btn" title="Вставить без Enter">⎀</button>
+    <button type="submit" id="send" class="send" aria-label="Отправить">↑</button>
+  </form>
+</section>
+
+<div id="toast" class="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
